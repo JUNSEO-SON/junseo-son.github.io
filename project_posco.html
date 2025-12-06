@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project: POSCO Mentoring</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-slate-50 text-slate-800">
+
+    <div class="max-w-4xl mx-auto px-4 py-12">
+        <a href="index.html" class="inline-flex items-center text-blue-600 hover:text-blue-800 mb-8 font-medium">
+            <i class="fas fa-arrow-left mr-2"></i> Back to Home
+        </a>
+
+        <header class="mb-12">
+            <span class="px-3 py-1 bg-purple-100 text-purple-700 text-xs font-bold rounded-full mb-4 inline-block">Technical Leadership</span>
+            <h1 class="text-4xl font-extrabold text-slate-900 mb-4">POSCO 현직자 기술 멘토링</h1>
+            <p class="text-xl text-slate-600">설비 고장 이력 자동 분류를 위한 RAG 파이프라인 설계 가이드</p>
+        </header>
+
+        <div class="grid gap-8">
+            <!-- Overview -->
+            <section class="bg-white p-8 rounded-2xl shadow-sm">
+                <h2 class="text-2xl font-bold mb-4 text-slate-800"><i class="fas fa-info-circle mr-2 text-blue-500"></i>Overview</h2>
+                <p class="leading-relaxed text-slate-600">
+                    포스코그룹의 'AI 활용 전문가 과정'에서 기술계 코치로 활동하며, 현직자 팀이 진행하는 <strong>'설비 고장 이력 키워드 자동 분류'</strong> 프로젝트를 기술 멘토링했습니다.
+                    도메인 지식은 풍부하지만 AI 엔지니어링 경험이 부족한 현직자들에게 <strong>벡터 DB와 LLM을 활용한 RAG 아키텍처</strong>를 제안하고, 데이터 전처리 로직 최적화를 가이드했습니다.
+                </p>
+            </section>
+
+            <!-- Problem & Solution -->
+            <section class="bg-white p-8 rounded-2xl shadow-sm">
+                <h2 class="text-2xl font-bold mb-4 text-slate-800"><i class="fas fa-exclamation-triangle mr-2 text-orange-500"></i>The Problem</h2>
+                <ul class="list-disc list-inside space-y-2 text-slate-600 mb-6">
+                    <li><strong>비효율성:</strong> 매주 1,300건의 설비 고장 데이터를 엑셀로 수작업 분류하느라 <strong>주당 7시간</strong>이 소요됨.</li>
+                    <li><strong>정합성 문제:</strong> 작업자마다 주관적인 기준으로 분류하여 데이터의 일관성이 떨어지고 분석 왜곡 발생.</li>
+                </ul>
+
+                <h2 class="text-2xl font-bold mb-4 text-slate-800"><i class="fas fa-lightbulb mr-2 text-yellow-500"></i>Solution (My Contribution)</h2>
+                <div class="space-y-4 text-slate-600">
+                    <div class="border-l-4 border-blue-500 pl-4">
+                        <h4 class="font-bold text-slate-900">1. RAG 아키텍처 설계 가이드</h4>
+                        <p>단순 LLM 호출이 아닌, 사내 데이터를 Vector DB에 임베딩하여 검색하는 RAG(Retrieval-Augmented Generation) 방식을 제안하여 할루시네이션을 줄이고 정확도를 높였습니다.</p>
+                    </div>
+                    <div class="border-l-4 border-blue-500 pl-4">
+                        <h4 class="font-bold text-slate-900">2. 데이터 전처리 최적화</h4>
+                        <p>비효율적인 반복문으로 작성된 전처리 코드를 진단하고, Pandas 벡터화 연산을 활용한 최적화 코드를 스니펫(Snippet) 형태로 제공하여 처리 속도를 개선했습니다.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Results -->
+            <section class="bg-white p-8 rounded-2xl shadow-sm border border-slate-200">
+                <h2 class="text-2xl font-bold mb-6 text-slate-800"><i class="fas fa-chart-line mr-2 text-green-500"></i>Key Results</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-center">
+                    <div class="bg-slate-50 p-6 rounded-xl">
+                        <div class="text-4xl font-extrabold text-blue-600 mb-2">99%</div>
+                        <div class="text-sm text-slate-500">시간 단축</div>
+                        <p class="font-medium mt-2">7시간/주 → 4분/주</p>
+                    </div>
+                    <div class="bg-slate-50 p-6 rounded-xl">
+                        <div class="text-4xl font-extrabold text-blue-600 mb-2">84%</div>
+                        <div class="text-sm text-slate-500">분류 정확도</div>
+                        <p class="font-medium mt-2">일관된 AI 기준 적용</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Lesson Learned -->
+            <section class="bg-slate-900 text-white p-8 rounded-2xl">
+                <h2 class="text-2xl font-bold mb-4"><i class="fas fa-book-open mr-2"></i>Lesson Learned</h2>
+                <p class="leading-relaxed opacity-90">
+                    직접 코드를 짜는 것보다 타인의 코드를 리뷰하고 올바른 방향으로 이끄는 것이 더 높은 차원의 이해도를 요구한다는 것을 배웠습니다. 
+                    특히, 비전공자인 현직자에게 기술적 개념(Vector DB, Embedding)을 비즈니스 언어로 번역하여 설명하는 <strong>'기술 커뮤니케이션'</strong> 역량을 기를 수 있었습니다.
+                </p>
+            </section>
+        </div>
+    </div>
+</body>
+</html>
