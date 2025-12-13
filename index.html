@@ -4,81 +4,220 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>손준서 | Data Engineer Portfolio</title>
+    <meta name="description" content="물리학적 사고와 공정 엔지니어링 경험을 데이터 분석에 접목하는 데이터 엔지니어 손준서의 포트폴리오입니다.">
+    
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+
     <style>
         body { font-family: 'Noto Sans KR', sans-serif; }
-        .card-hover:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
+        .gradient-text {
+            background: linear-gradient(to right, #2563eb, #9333ea);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #f1f1f1; }
+        ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+        html { scroll-behavior: smooth; }
     </style>
 </head>
 <body class="bg-slate-50 text-slate-800">
 
-    <!-- Nav -->
-    <nav class="fixed w-full bg-white/90 backdrop-blur-sm shadow-sm z-50">
-        <div class="max-w-6xl mx-auto px-4 h-16 flex justify-between items-center">
-            <a href="index.html" class="font-bold text-xl text-slate-900">JUNSEO<span class="text-blue-600">.DEV</span></a>
-            <div class="hidden md:flex space-x-8">
-                <a href="#about" class="hover:text-blue-600 font-medium">About</a>
-                <a href="#skills" class="hover:text-blue-600 font-medium">Skills</a>
-                <a href="#projects" class="hover:text-blue-600 font-medium">Projects</a>
+    <!-- Navigation -->
+    <nav class="fixed w-full bg-white/90 backdrop-blur-sm shadow-sm z-50 transition-all duration-300">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16 items-center">
+                <a href="index.html" class="flex-shrink-0 font-bold text-xl tracking-tight text-slate-900 hover:opacity-80 transition">
+                    JUNSEO<span class="text-blue-600">.DEV</span>
+                </a>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#about" class="text-slate-600 hover:text-blue-600 font-medium transition-colors">About</a>
+                    <a href="#skills" class="text-slate-600 hover:text-blue-600 font-medium transition-colors">Skills</a>
+                    <a href="#projects" class="text-slate-600 hover:text-blue-600 font-medium transition-colors">Projects</a>
+                    <a href="#contact" class="text-slate-600 hover:text-blue-600 font-medium transition-colors">Contact</a>
+                </div>
             </div>
         </div>
     </nav>
 
-    <!-- Hero -->
-    <header class="pt-32 pb-20 bg-white text-center px-4">
-        <div class="max-w-4xl mx-auto">
-            <h1 class="text-4xl sm:text-5xl font-extrabold text-slate-900 mb-6">
-                데이터의 <span class="text-blue-600">맥락(Context)</span>을 이해하는<br>엔지니어 손준서입니다.
+    <!-- Hero Section -->
+    <header class="pt-32 pb-20 bg-white">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <!-- Profile Image Placeholder -->
+            <div class="mb-6 inline-block p-1 rounded-full bg-gradient-to-r from-blue-500 to-purple-500 shadow-lg">
+                <!-- 프로필 이미지 경로를 실제 이미지로 변경해주세요 -->
+                <img src="https://via.placeholder.com/150/cbd5e1/64748b?text=JS" alt="손준서 프로필" class="w-32 h-32 rounded-full border-4 border-white object-cover bg-white">
+            </div>
+            
+            <h1 class="text-4xl sm:text-5xl font-extrabold text-slate-900 mb-6 tracking-tight leading-tight">
+                데이터의 <span class="gradient-text">맥락(Context)</span>을 이해하는<br>
+                엔지니어 손준서입니다.
             </h1>
-            <p class="text-xl text-slate-600 mb-8 leading-relaxed">
-                물리학적 사고와 SK Hynix 공정 엔지니어 경험을 바탕으로<br>
-                비즈니스 문제를 기술(Engineering)로 해결합니다.
+            
+            <p class="text-xl text-slate-600 mb-10 max-w-2xl mx-auto leading-relaxed">
+                <span class="font-semibold text-slate-800">Physics Base</span>의 논리적 사고와 
+                <span class="font-semibold text-slate-800">SK Hynix</span> 공정 실무 경험을 바탕으로,
+                비즈니스의 문제를 <span class="text-blue-600 font-bold">기술(Engineering)</span>로 해결합니다.
             </p>
-            <div class="flex justify-center gap-4">
-                <a href="https://github.com/junseo-son" target="_blank" class="px-6 py-3 bg-slate-900 text-white rounded-lg hover:bg-slate-800 transition">
-                    <i class="fab fa-github mr-2"></i>GitHub
+            
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="#contact" class="px-8 py-3 bg-slate-900 text-white font-semibold rounded-lg hover:bg-slate-800 transition shadow-lg transform hover:-translate-y-0.5">
+                    Contact Me
                 </a>
-                <a href="mailto:wnstj7739@naver.com" class="px-6 py-3 border border-slate-300 rounded-lg hover:bg-slate-50 transition">
-                    Email Me
+                <a href="https://github.com/wnstj7739" target="_blank" class="px-8 py-3 bg-white text-slate-900 border border-slate-300 font-semibold rounded-lg hover:bg-slate-50 transition shadow-sm transform hover:-translate-y-0.5 flex items-center justify-center">
+                    <i class="fab fa-github mr-2 text-xl"></i>GitHub
                 </a>
             </div>
         </div>
     </header>
 
-    <!-- About -->
+    <!-- About Section -->
     <section id="about" class="py-20 bg-slate-50">
-        <div class="max-w-6xl mx-auto px-4">
-            <h2 class="text-3xl font-bold mb-12 text-center">About Me</h2>
-            <div class="grid md:grid-cols-2 gap-8">
-                <div class="bg-white p-8 rounded-2xl shadow-sm">
-                    <h3 class="text-xl font-bold text-blue-600 mb-4"><i class="fas fa-history mr-2"></i>Experience</h3>
-                    <ul class="space-y-4">
-                        <li class="border-l-4 border-blue-500 pl-4">
-                            <div class="font-bold">팀스파르타 (POSCO AI 코치)</div>
-                            <div class="text-sm text-slate-500">2025.07 - 2025.08</div>
-                            <div class="text-sm mt-1">현직자 대상 AI/Data 프로젝트 기술 멘토링</div>
-                        </li>
-                        <li class="border-l-4 border-slate-300 pl-4">
-                            <div class="font-bold">SK hynix (공정 R&D)</div>
-                            <div class="text-sm text-slate-500">2021.01 - 2022.03</div>
-                            <div class="text-sm mt-1">PKG 공정 데이터 분석 및 수율 개선</div>
-                        </li>
-                    </ul>
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-slate-900 mb-12 text-center">About Me</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <!-- Education & Experience -->
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 h-full">
+                    <h3 class="text-xl font-bold text-blue-600 mb-8 flex items-center border-b pb-4">
+                        <i class="fas fa-briefcase w-8"></i> Experience & Career
+                    </h3>
+                    
+                    <div class="space-y-8 relative pl-2">
+                        <!-- Vertical Line -->
+                        <div class="absolute left-[11px] top-2 bottom-2 w-0.5 bg-slate-200"></div>
+
+                        <!-- Career Item -->
+                        <div class="relative pl-8">
+                            <div class="absolute left-[4px] top-1.5 w-4 h-4 bg-blue-500 rounded-full border-4 border-white shadow-sm ring-1 ring-blue-500"></div>
+                            <h4 class="font-bold text-slate-900 text-lg">팀스파르타 (POSCO 기술계 AI 코치)</h4>
+                            <p class="text-sm text-slate-500 font-medium mb-2">2025.07 - 2025.08 | 계약직</p>
+                            <p class="text-slate-600">포스코 현직자 대상 AI/Data 프로젝트 기술 멘토링 및 아키텍처 설계 가이드 제공.</p>
+                        </div>
+
+                        <!-- Career Item -->
+                        <div class="relative pl-8">
+                            <div class="absolute left-[4px] top-1.5 w-4 h-4 bg-slate-400 rounded-full border-4 border-white shadow-sm ring-1 ring-slate-400"></div>
+                            <h4 class="font-bold text-slate-900 text-lg">SK hynix (공정 R&D 엔지니어)</h4>
+                            <p class="text-sm text-slate-500 font-medium mb-2">2021.01 - 2022.03</p>
+                            <p class="text-slate-600">PKG 공정 개발 및 대용량 공정 데이터 분석을 통한 수율 개선 업무 수행.</p>
+                        </div>
+                        
+                         <!-- Military Item -->
+                        <div class="relative pl-8">
+                            <div class="absolute left-[4px] top-1.5 w-4 h-4 bg-slate-300 rounded-full border-4 border-white shadow-sm ring-1 ring-slate-300"></div>
+                            <h4 class="font-bold text-slate-900 text-lg">대한민국 공군 (중위 만기전역)</h4>
+                            <p class="text-sm text-slate-500 font-medium mb-2">2017.08 - 2020.11</p>
+                            <p class="text-slate-600">기지중대장으로서 70여 명의 인력 관리 및 부대 운영 총괄.</p>
+                        </div>
+                    </div>
                 </div>
-                <div class="bg-white p-8 rounded-2xl shadow-sm">
-                    <h3 class="text-xl font-bold text-purple-600 mb-4"><i class="fas fa-user-graduate mr-2"></i>Education</h3>
-                    <ul class="space-y-4">
-                        <li class="border-l-4 border-purple-500 pl-4">
-                            <div class="font-bold">Naver Boostcamp AI Tech</div>
-                            <div class="text-sm text-slate-500">2025.09 - 진행중</div>
-                            <div class="text-sm mt-1">Computer Vision & Data Engineering</div>
+
+                <!-- Bootcamps & Education -->
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 h-full">
+                    <h3 class="text-xl font-bold text-purple-600 mb-8 flex items-center border-b pb-4">
+                        <i class="fas fa-graduation-cap w-8"></i> Education & Training
+                    </h3>
+                    
+                    <div class="space-y-8 relative pl-2">
+                         <!-- Vertical Line -->
+                        <div class="absolute left-[11px] top-2 bottom-2 w-0.5 bg-slate-200"></div>
+
+                        <div class="relative pl-8">
+                            <div class="absolute left-[4px] top-1.5 w-4 h-4 bg-purple-500 rounded-full border-4 border-white shadow-sm ring-1 ring-purple-500"></div>
+                            <h4 class="font-bold text-slate-900 text-lg">Naver Boostcamp AI Tech</h4>
+                            <p class="text-sm text-slate-500 font-medium mb-2">2025.09 - 진행 중</p>
+                            <p class="text-slate-600">Computer Vision 트랙, End-to-End AI 파이프라인 구축 프로젝트 수행.</p>
+                        </div>
+
+                        <div class="relative pl-8">
+                            <div class="absolute left-[4px] top-1.5 w-4 h-4 bg-purple-400 rounded-full border-4 border-white shadow-sm ring-1 ring-purple-400"></div>
+                            <h4 class="font-bold text-slate-900 text-lg">Microsoft AI 엔지니어 과정</h4>
+                            <p class="text-sm text-slate-500 font-medium mb-2">2025.05 - 2025.08</p>
+                            <p class="text-slate-600">Azure 클라우드 기반 AI 솔루션 설계 및 배포 실습.</p>
+                        </div>
+
+                        <div class="relative pl-8">
+                             <div class="absolute left-[4px] top-1.5 w-4 h-4 bg-slate-400 rounded-full border-4 border-white shadow-sm ring-1 ring-slate-400"></div>
+                            <h4 class="font-bold text-slate-900 text-lg">UNIST (울산과학기술원)</h4>
+                            <p class="text-sm text-slate-500 font-medium mb-2">2012.03 - 2017.02</p>
+                            <p class="text-slate-600">물리학 전공 (Physics Major) / 전자공학 부전공.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-20 bg-white border-y border-slate-100">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-slate-900 mb-12 text-center">Skills & Certificates</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <!-- Tech Stack -->
+                <div>
+                    <h3 class="text-xl font-bold text-slate-800 mb-6 flex items-center">
+                        <i class="fas fa-code text-slate-400 mr-3"></i>Tech Stack
+                    </h3>
+                    <div class="flex flex-wrap gap-3">
+                        <span class="px-4 py-2 bg-blue-50 text-blue-700 border border-blue-100 rounded-lg font-semibold shadow-sm">Python</span>
+                        <span class="px-4 py-2 bg-blue-50 text-blue-700 border border-blue-100 rounded-lg font-semibold shadow-sm">SQL (BigQuery)</span>
+                        <span class="px-4 py-2 bg-green-50 text-green-700 border border-green-100 rounded-lg font-semibold shadow-sm">Pandas / Numpy</span>
+                        <span class="px-4 py-2 bg-orange-50 text-orange-700 border border-orange-100 rounded-lg font-semibold shadow-sm">AWS / GCP / Azure</span>
+                        <span class="px-4 py-2 bg-sky-50 text-sky-700 border border-sky-100 rounded-lg font-semibold shadow-sm">Docker</span>
+                        <span class="px-4 py-2 bg-yellow-50 text-yellow-700 border border-yellow-100 rounded-lg font-semibold shadow-sm">Linux</span>
+                        <span class="px-4 py-2 bg-slate-50 text-slate-700 border border-slate-100 rounded-lg font-semibold shadow-sm">Git</span>
+                         <span class="px-4 py-2 bg-red-50 text-red-700 border border-red-100 rounded-lg font-semibold shadow-sm">Streamlit</span>
+                    </div>
+                </div>
+
+                <!-- Certificates -->
+                <div>
+                    <h3 class="text-xl font-bold text-slate-800 mb-6 flex items-center">
+                        <i class="fas fa-award text-slate-400 mr-3"></i>Certificates
+                    </h3>
+                    <ul class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <li class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm flex items-center space-x-3 hover:border-blue-300 transition">
+                            <i class="fas fa-database text-blue-500 text-xl"></i>
+                            <div>
+                                <span class="block font-bold text-slate-800">SQLD</span>
+                                <span class="text-xs text-slate-500">2025.09 취득</span>
+                            </div>
                         </li>
-                        <li class="border-l-4 border-slate-300 pl-4">
-                            <div class="font-bold">UNIST (울산과학기술원)</div>
-                            <div class="text-sm text-slate-500">2012.03 - 2017.02</div>
-                            <div class="text-sm mt-1">물리학 전공 (Physics)</div>
+                        <li class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm flex items-center space-x-3 hover:border-blue-300 transition">
+                            <i class="fas fa-chart-bar text-green-500 text-xl"></i>
+                            <div>
+                                <span class="block font-bold text-slate-800">ADsP</span>
+                                <span class="text-xs text-slate-500">2025.06 취득</span>
+                            </div>
+                        </li>
+                        <li class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm flex items-center space-x-3 hover:border-blue-300 transition">
+                            <i class="fas fa-language text-purple-500 text-xl"></i>
+                            <div>
+                                <span class="block font-bold text-slate-800">OPIc IH</span>
+                                <span class="text-xs text-slate-500">English Communication</span>
+                            </div>
+                        </li>
+                        <li class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm flex items-center space-x-3 opacity-75">
+                            <i class="fas fa-hourglass-half text-orange-400 text-xl"></i>
+                            <div>
+                                <span class="block font-bold text-slate-800">빅데이터분석기사</span>
+                                <span class="text-xs text-slate-500">준비 중</span>
+                            </div>
                         </li>
                     </ul>
                 </div>
@@ -86,85 +225,127 @@
         </div>
     </section>
 
-    <!-- Skills -->
-    <section id="skills" class="py-20 bg-white">
-        <div class="max-w-6xl mx-auto px-4">
-            <h2 class="text-3xl font-bold mb-12 text-center">Skills & Certificates</h2>
-            <div class="flex flex-wrap justify-center gap-3 mb-8">
-                <span class="px-4 py-2 bg-blue-100 text-blue-800 rounded-full font-bold">Python</span>
-                <span class="px-4 py-2 bg-blue-100 text-blue-800 rounded-full font-bold">SQL (BigQuery)</span>
-                <span class="px-4 py-2 bg-green-100 text-green-800 rounded-full font-bold">Pandas</span>
-                <span class="px-4 py-2 bg-orange-100 text-orange-800 rounded-full font-bold">AWS / GCP</span>
-                <span class="px-4 py-2 bg-sky-100 text-sky-800 rounded-full font-bold">Docker</span>
-                <span class="px-4 py-2 bg-yellow-100 text-yellow-800 rounded-full font-bold">Linux</span>
-            </div>
-            <div class="text-center space-x-4 text-slate-600">
-                <span><i class="fas fa-certificate text-blue-500 mr-1"></i> SQLD</span>
-                <span><i class="fas fa-certificate text-blue-500 mr-1"></i> ADsP</span>
-                <span><i class="fas fa-certificate text-blue-500 mr-1"></i> OPIc IH</span>
-            </div>
-        </div>
-    </section>
-
-    <!-- Projects Grid -->
+    <!-- Projects Section -->
     <section id="projects" class="py-20 bg-slate-50">
-        <div class="max-w-6xl mx-auto px-4">
-            <h2 class="text-3xl font-bold mb-12 text-center">Featured Projects</h2>
-            <div class="grid md:grid-cols-2 gap-8">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-slate-900 mb-12 text-center">Featured Projects</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                 
-                <!-- Project 1: POSCO -->
-                <a href="project_posco.html" class="bg-white rounded-2xl p-8 shadow-sm card-hover border border-slate-100 block">
-                    <div class="flex justify-between items-center mb-4">
-                        <span class="px-3 py-1 bg-purple-100 text-purple-700 text-xs font-bold rounded-full">Leadership</span>
-                        <i class="fas fa-arrow-right text-slate-400"></i>
+                 <!-- Project 1: Trash Detection (New - 1st Place) -->
+                <a href="project_cv.html" class="group block bg-white rounded-2xl overflow-hidden shadow-sm border border-slate-100 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 h-full flex flex-col">
+                    <div class="p-8 flex-grow">
+                        <div class="flex justify-between items-start mb-4">
+                            <span class="px-3 py-1 bg-yellow-100 text-yellow-700 text-xs font-bold rounded-full uppercase tracking-wide">
+                                <i class="fas fa-trophy mr-1"></i> 1st Place
+                            </span>
+                            <span class="text-slate-400 text-sm"><i class="far fa-calendar-alt mr-1"></i>2025.12</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900 mb-3 group-hover:text-blue-600 transition-colors">재활용 쓰레기 탐지 (Object Detection)</h3>
+                        <p class="text-slate-600 text-sm mb-6 leading-relaxed">
+                            Naver Boostcamp CV 대회 1위. 1인 1GPU 인프라 구축부터 Co-DETR 모델 튜닝, WBF 앙상블 전략 수립까지 전체 엔지니어링 과정을 주도했습니다.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mt-auto">
+                            <span class="text-xs bg-slate-100 px-2 py-1 rounded text-slate-600 font-medium">PyTorch</span>
+                            <span class="text-xs bg-slate-100 px-2 py-1 rounded text-slate-600 font-medium">MMDetection</span>
+                            <span class="text-xs bg-slate-100 px-2 py-1 rounded text-slate-600 font-medium">Co-DETR</span>
+                            <span class="text-xs bg-slate-100 px-2 py-1 rounded text-slate-600 font-medium">Docker</span>
+                        </div>
                     </div>
-                    <h3 class="text-xl font-bold text-slate-900 mb-2">POSCO 현직자 기술 멘토링</h3>
-                    <p class="text-slate-600 text-sm mb-4">현직자들의 '설비 고장 이력 자동 분류' 프로젝트를 기술 멘토링하여 수작업 시간을 99% 단축시켰습니다.</p>
-                    <div class="flex gap-2">
-                        <span class="text-xs bg-slate-100 px-2 py-1 rounded text-slate-600">RAG</span>
-                        <span class="text-xs bg-slate-100 px-2 py-1 rounded text-slate-600">LLM</span>
-                    </div>
-                </a>
-
-                <!-- Project 2: Factorio -->
-                <a href="project_factorio.html" class="bg-white rounded-2xl p-8 shadow-sm card-hover border border-slate-100 block">
-                    <div class="flex justify-between items-center mb-4">
-                        <span class="px-3 py-1 bg-green-100 text-green-700 text-xs font-bold rounded-full">Infra Engineering</span>
-                        <i class="fas fa-arrow-right text-slate-400"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-slate-900 mb-2">GCP 기반 Linux 게임 서버 구축</h3>
-                    <p class="text-slate-600 text-sm mb-4">온프레미스 환경을 클라우드로 마이그레이션하고 방화벽 및 프로세스를 직접 관리하여 무중단 서비스를 운영했습니다.</p>
-                    <div class="flex gap-2">
-                        <span class="text-xs bg-slate-100 px-2 py-1 rounded text-slate-600">GCP</span>
-                        <span class="text-xs bg-slate-100 px-2 py-1 rounded text-slate-600">Linux</span>
+                    <div class="bg-yellow-50 px-8 py-3 flex justify-between items-center text-sm font-medium text-yellow-700">
+                        <span>View Project</span>
+                        <i class="fas fa-arrow-right transform group-hover:translate-x-1 transition-transform"></i>
                     </div>
                 </a>
 
-                <!-- Project 3: GongPick (수정됨) -->
-                <a href="project_gongpick.html" class="bg-white rounded-2xl p-8 shadow-sm card-hover border border-slate-100 block">
-                    <div class="flex justify-between items-center mb-4">
-                        <span class="px-3 py-1 bg-blue-100 text-blue-700 text-xs font-bold rounded-full">Team Project</span>
-                        <i class="fas fa-arrow-right text-slate-400"></i>
+                <!-- Project 2: POSCO -->
+                <a href="project_posco.html" class="group block bg-white rounded-2xl overflow-hidden shadow-sm border border-slate-100 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 h-full flex flex-col">
+                    <div class="p-8 flex-grow">
+                        <div class="flex justify-between items-start mb-4">
+                            <span class="px-3 py-1 bg-purple-100 text-purple-700 text-xs font-bold rounded-full uppercase tracking-wide">Leadership</span>
+                            <span class="text-slate-400 text-sm"><i class="far fa-calendar-alt mr-1"></i>2025</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900 mb-3 group-hover:text-blue-600 transition-colors">POSCO 현직자 기술 멘토링</h3>
+                        <p class="text-slate-600 text-sm mb-6 leading-relaxed">
+                            현직자들의 '설비 고장 이력 자동 분류' 프로젝트를 기술 멘토링하여, 수작업 시간을 99% 단축시키는 성과를 리드했습니다. RAG 아키텍처와 데이터 전처리 최적화 가이드를 제공했습니다.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mt-auto">
+                            <span class="text-xs bg-slate-100 px-2 py-1 rounded text-slate-600 font-medium">RAG</span>
+                            <span class="text-xs bg-slate-100 px-2 py-1 rounded text-slate-600 font-medium">LLM</span>
+                            <span class="text-xs bg-slate-100 px-2 py-1 rounded text-slate-600 font-medium">Mentoring</span>
+                        </div>
                     </div>
-                    <h3 class="text-xl font-bold text-slate-900 mb-2">GongPick: 맛집 추천 서비스</h3>
-                    <p class="text-slate-600 text-sm mb-4">Azure VM 환경에서 Streamlit을 활용하여 데이터 기반 추천 서비스를 빠르게 프로토타이핑했습니다.</p>
-                    <div class="flex gap-2">
-                        <span class="text-xs bg-slate-100 px-2 py-1 rounded text-slate-600">Azure</span>
-                        <span class="text-xs bg-slate-100 px-2 py-1 rounded text-slate-600">Streamlit</span>
+                    <div class="bg-purple-50 px-8 py-3 flex justify-between items-center text-sm font-medium text-purple-700">
+                        <span>View Case Study</span>
+                        <i class="fas fa-arrow-right transform group-hover:translate-x-1 transition-transform"></i>
                     </div>
                 </a>
 
-                <!-- Project 4: Algorithm -->
-                <a href="project_algo.html" class="bg-white rounded-2xl p-8 shadow-sm card-hover border border-slate-100 block">
-                    <div class="flex justify-between items-center mb-4">
-                        <span class="px-3 py-1 bg-slate-100 text-slate-700 text-xs font-bold rounded-full">Self Development</span>
-                        <i class="fas fa-arrow-right text-slate-400"></i>
+                <!-- Project 3: Factorio -->
+                <a href="project_factorio.html" class="group block bg-white rounded-2xl overflow-hidden shadow-sm border border-slate-100 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 h-full flex flex-col">
+                    <div class="p-8 flex-grow">
+                        <div class="flex justify-between items-start mb-4">
+                            <span class="px-3 py-1 bg-green-100 text-green-700 text-xs font-bold rounded-full uppercase tracking-wide">Infra Engineering</span>
+                            <span class="text-slate-400 text-sm"><i class="far fa-calendar-alt mr-1"></i>Personal</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900 mb-3 group-hover:text-blue-600 transition-colors">GCP 기반 Linux 게임 서버 구축</h3>
+                        <p class="text-slate-600 text-sm mb-6 leading-relaxed">
+                            P2P 방식의 연결 한계를 극복하기 위해 온프레미스 환경을 GCP 클라우드로 마이그레이션했습니다. 리눅스 환경에서 방화벽 및 프로세스를 직접 관리하여 24/7 무중단 서비스를 운영했습니다.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mt-auto">
+                            <span class="text-xs bg-slate-100 px-2 py-1 rounded text-slate-600 font-medium">GCP Compute Engine</span>
+                            <span class="text-xs bg-slate-100 px-2 py-1 rounded text-slate-600 font-medium">Linux</span>
+                            <span class="text-xs bg-slate-100 px-2 py-1 rounded text-slate-600 font-medium">Network</span>
+                        </div>
                     </div>
-                    <h3 class="text-xl font-bold text-slate-900 mb-2">Algorithm 역량 강화</h3>
-                    <p class="text-slate-600 text-sm mb-4">백준 Gold V 달성 및 DDP 새싹 코딩 대회 본선 진출. 엔지니어링의 기초 체력을 꾸준히 다지고 있습니다.</p>
-                    <div class="flex gap-2">
-                        <span class="text-xs bg-slate-100 px-2 py-1 rounded text-slate-600">Python</span>
-                        <span class="text-xs bg-slate-100 px-2 py-1 rounded text-slate-600">PS</span>
+                    <div class="bg-green-50 px-8 py-3 flex justify-between items-center text-sm font-medium text-green-700">
+                        <span>View Project</span>
+                        <i class="fas fa-arrow-right transform group-hover:translate-x-1 transition-transform"></i>
+                    </div>
+                </a>
+
+                <!-- Project 4: GongPick -->
+                <a href="project_gongpick.html" class="group block bg-white rounded-2xl overflow-hidden shadow-sm border border-slate-100 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 h-full flex flex-col">
+                    <div class="p-8 flex-grow">
+                        <div class="flex justify-between items-start mb-4">
+                            <span class="px-3 py-1 bg-blue-100 text-blue-700 text-xs font-bold rounded-full uppercase tracking-wide">Team Project</span>
+                            <span class="text-slate-400 text-sm"><i class="far fa-calendar-alt mr-1"></i>2025</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900 mb-3 group-hover:text-blue-600 transition-colors">GongPick: 맛집 추천 서비스</h3>
+                        <p class="text-slate-600 text-sm mb-6 leading-relaxed">
+                            공무원 업무추진비 데이터를 분석하여 상황별 맛집을 추천하는 서비스입니다. Azure VM 환경에서 Streamlit을 활용해 데이터 분석 모델을 웹 서비스로 빠르게 구현(Rapid Prototyping)했습니다.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mt-auto">
+                            <span class="text-xs bg-slate-100 px-2 py-1 rounded text-slate-600 font-medium">Azure VM</span>
+                            <span class="text-xs bg-slate-100 px-2 py-1 rounded text-slate-600 font-medium">Streamlit</span>
+                            <span class="text-xs bg-slate-100 px-2 py-1 rounded text-slate-600 font-medium">Python</span>
+                        </div>
+                    </div>
+                    <div class="bg-blue-50 px-8 py-3 flex justify-between items-center text-sm font-medium text-blue-700">
+                        <span>View Project</span>
+                        <i class="fas fa-arrow-right transform group-hover:translate-x-1 transition-transform"></i>
+                    </div>
+                </a>
+
+                <!-- Project 5: Algorithm -->
+                <a href="project_algo.html" class="group block bg-white rounded-2xl overflow-hidden shadow-sm border border-slate-100 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 h-full flex flex-col">
+                    <div class="p-8 flex-grow">
+                        <div class="flex justify-between items-start mb-4">
+                            <span class="px-3 py-1 bg-slate-200 text-slate-700 text-xs font-bold rounded-full uppercase tracking-wide">Self Development</span>
+                            <span class="text-slate-400 text-sm"><i class="far fa-calendar-alt mr-1"></i>Ongoing</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900 mb-3 group-hover:text-blue-600 transition-colors">Algorithm 역량 강화</h3>
+                        <p class="text-slate-600 text-sm mb-6 leading-relaxed">
+                            견고한 엔지니어링의 기초가 되는 알고리즘 역량을 꾸준히 개발하고 있습니다. 백준 Gold V 달성 및 DDP 새싹 코딩 대회 본선 진출(우수상 3위) 성과를 거뒀습니다.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mt-auto">
+                            <span class="text-xs bg-slate-100 px-2 py-1 rounded text-slate-600 font-medium">Python</span>
+                            <span class="text-xs bg-slate-100 px-2 py-1 rounded text-slate-600 font-medium">PS (Problem Solving)</span>
+                        </div>
+                    </div>
+                    <div class="bg-slate-100 px-8 py-3 flex justify-between items-center text-sm font-medium text-slate-700">
+                        <span>View Details</span>
+                        <i class="fas fa-arrow-right transform group-hover:translate-x-1 transition-transform"></i>
                     </div>
                 </a>
 
@@ -173,10 +354,34 @@
     </section>
 
     <!-- Footer -->
-    <footer class="bg-slate-900 text-white py-8 text-center">
-        <p>© 2025 Junseo Son. All rights reserved.</p>
+    <footer id="contact" class="bg-slate-900 text-white py-16 border-t border-slate-800">
+        <div class="max-w-4xl mx-auto px-4 text-center">
+            <h2 class="text-2xl font-bold mb-8">Let's Connect</h2>
+            <p class="text-slate-400 mb-8 max-w-lg mx-auto">
+                데이터 엔지니어링과 MLOps에 대한 열정으로 끊임없이 성장하고 있습니다.<br>
+                새로운 기회와 협업에 언제나 열려있습니다.
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center items-center gap-6 mb-12">
+                <a href="mailto:wnstj7739@naver.com" class="flex items-center px-6 py-3 bg-slate-800 rounded-full hover:bg-blue-600 transition group w-full sm:w-auto justify-center">
+                    <i class="fas fa-envelope mr-3 text-lg group-hover:text-white text-slate-300"></i>
+                    <span class="font-medium">wnstj7739@naver.com</span>
+                </a>
+                <a href="tel:+821028512013" class="flex items-center px-6 py-3 bg-slate-800 rounded-full hover:bg-green-600 transition group w-full sm:w-auto justify-center">
+                    <i class="fas fa-phone mr-3 text-lg group-hover:text-white text-slate-300"></i>
+                    <span class="font-medium">010-2851-2013</span>
+                </a>
+                <a href="https://github.com/wnstj7739" target="_blank" class="flex items-center px-6 py-3 bg-slate-800 rounded-full hover:bg-gray-600 transition group w-full sm:w-auto justify-center">
+                    <i class="fab fa-github mr-3 text-lg group-hover:text-white text-slate-300"></i>
+                    <span class="font-medium">GitHub</span>
+                </a>
+            </div>
+            <div class="border-t border-slate-800 pt-8">
+                <p class="text-slate-500 text-sm">
+                    © 2025 Junseo Son. All rights reserved.
+                </p>
+            </div>
+        </div>
     </footer>
 
 </body>
 </html>
-
