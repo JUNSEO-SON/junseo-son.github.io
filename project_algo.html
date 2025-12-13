@@ -23,7 +23,7 @@
         </header>
 
         <div class="grid gap-8">
-            <!-- Stats (이미지 제거, 텍스트 중심) -->
+            <!-- Stats -->
             <section class="bg-white p-8 rounded-2xl shadow-sm border border-slate-100">
                 <h3 class="text-lg font-bold text-slate-800 mb-6 flex items-center">
                     <i class="fas fa-chart-bar text-slate-400 mr-2"></i>Current Status
@@ -45,35 +45,45 @@
                 </div>
             </section>
 
-            <!-- Key Achievement (사진 2장 + 팩트 수정) -->
+            <!-- Key Achievement -->
             <section class="bg-white p-8 rounded-2xl shadow-sm border-l-4 border-yellow-400">
-                <h2 class="text-xl font-bold mb-4 text-slate-900 flex items-center">
+                <h2 class="text-xl font-bold mb-6 text-slate-900 flex items-center">
                     <span class="mr-3 text-yellow-500"><i class="fas fa-trophy text-2xl"></i></span>DDP 새싹 피날레 코딩 대회
                 </h2>
                 
-                <!-- Photo Grid -->
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
-                    <!-- 1. 예선 성적 사진 -->
-                    <div class="rounded-xl overflow-hidden border border-slate-200">
-                        <img src="images/prelim_Leaderboard.png" alt="예선 4위 성적 인증" class="w-full h-48 object-cover hover:scale-105 transition duration-300">
-                    </div>
-                    <!-- 2. 본선 참가 사진 -->
-                    <div class="rounded-xl overflow-hidden border border-slate-200">
-                        <img src="images/main_certi.png" alt="본선 현장 참가 사진" class="w-full h-48 object-cover hover:scale-105 transition duration-300">
-                    </div>
-                </div>
-
-                <p class="text-slate-600 mb-6 leading-relaxed">
+                <p class="text-slate-600 mb-8 leading-relaxed">
                     서울시 새싹 교육생 중 최상위 50명을 선발하여 진행한 라이브 코딩 대회입니다.
                     예선 상위권 성적을 통해 탄탄한 기본 구현력을 검증받았습니다.
                 </p>
+
+                <!-- Photo Container (Vertical Stack) -->
+                <div class="space-y-8 mb-8">
+                    <!-- 1. 예선 성적 사진 -->
+                    <div class="rounded-xl overflow-hidden border border-slate-200 shadow-sm">
+                        <!-- 이미지 경로 확인 필요: assets/images/prelim_rank.png -->
+                        <img src="images/prelim_Leaderboard.png" alt="예선 4위 성적 인증" class="w-full h-auto block">
+                        <div class="bg-slate-50 p-3 text-center text-sm font-medium text-slate-600 border-t border-slate-100">
+                            <i class="fas fa-check-circle text-green-500 mr-2"></i>예선 4위 성적 인증
+                        </div>
+                    </div>
+
+                    <!-- 2. 본선 참가 사진 -->
+                    <div class="rounded-xl overflow-hidden border border-slate-200 shadow-sm">
+                        <!-- 이미지 경로 확인 필요: assets/images/finals_photo.png -->
+                        <img src="images/main_certi.png" alt="본선 현장 참가 사진" class="w-full h-auto block">
+                        <div class="bg-slate-50 p-3 text-center text-sm font-medium text-slate-600 border-t border-slate-100">
+                            <i class="fas fa-flag text-blue-500 mr-2"></i>본선 대회 참가 현장
+                        </div>
+                    </div>
+                </div>
+
                 <ul class="space-y-3">
-                    <li class="flex items-center text-slate-800 font-medium bg-yellow-50 p-3 rounded-lg">
-                        <i class="fas fa-check-circle text-yellow-500 mr-3"></i>
+                    <li class="flex items-center text-slate-800 font-medium bg-yellow-50 p-3 rounded-lg border border-yellow-100">
+                        <i class="fas fa-check-circle text-yellow-600 mr-3"></i>
                         <span>예선 4위로 본선 진출 (Top 10%)</span>
                     </li>
-                    <li class="flex items-center text-slate-800 font-medium bg-slate-50 p-3 rounded-lg">
-                        <i class="fas fa-flag text-slate-500 mr-3"></i>
+                    <li class="flex items-center text-slate-800 font-medium bg-slate-50 p-3 rounded-lg border border-slate-200">
+                        <i class="fas fa-code text-slate-500 mr-3"></i>
                         <span>본선 진출 (Finalist) 및 알고리즘 구현 역량 확인</span>
                     </li>
                 </ul>
