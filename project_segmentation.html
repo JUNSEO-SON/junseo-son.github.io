@@ -112,7 +112,7 @@
                         <li class="flex items-start">
                             <span class="bg-blue-600 text-white rounded-full w-6 h-6 flex items-center justify-center text-sm font-bold mr-3 flex-shrink-0 mt-0.5">1</span>
                             <div>
-                                <strong class="text-slate-900">Class Collapse (소형 객체 소멸):</strong> 전체 픽셀의 0.01% 미만을 차지하는 'Finger-12, 13'과 같은 미세 관절이 학습 과정에서 배경(Background)으로 오분류되며 Dice Score가 0.00으로 수렴하는 현상.
+                                <strong class="text-slate-900">Class Collapse (소형 객체 소멸):</strong> 배경(Background)이 이미지의 대다수를 차지하는 **극심한 클래스 불균형(Severe Class Imbalance)**으로 인해, 상대적으로 픽셀 비중이 적은 Finger-12, 13 클래스의 Loss가 전체 학습에 기여하지 못하고 무시되는 현상.
                             </div>
                         </li>
                         <li class="flex items-start">
@@ -248,7 +248,7 @@
                 </h2>
                 
                 <div class="rounded-xl overflow-hidden shadow-sm border border-slate-200 mb-6">
-                    <img src="images/slide_result.png" alt="Segmentation Visualization Result" class="w-full h-auto">
+                    <img src="images/project_seg_infer.png" alt="Segmentation Visualization Result" class="w-full h-auto">
                 </div>
                 
                 <p class="text-center text-sm text-slate-500 mb-6 font-medium italic">
