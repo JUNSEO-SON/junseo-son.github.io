@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project - Hand Bone Segmentation</title>
+    <link rel="stylesheet" href="style.css"> <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* 프로젝트별 개별 스타일 (필요시 조정) */
+        .tech-badge {
+            background-color: #f0f0f0;
+            padding: 5px 10px;
+            border-radius: 15px;
+            font-size: 0.85rem;
+            margin-right: 5px;
+            color: #333;
+            border: 1px solid #ddd;
+        }
+        .highlight {
+            color: #d9534f; /* 강조 색상 */
+            font-weight: bold;
+        }
+        .analysis-box {
+            background-color: #f9f9f9;
+            border-left: 4px solid #007bff;
+            padding: 15px;
+            margin: 20px 0;
+        }
+        .star-section h4 {
+            margin-top: 15px;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="container">
+            <a href="index.html" class="back-btn"><i class="fas fa-arrow-left"></i> Back to Portfolio</a>
+        </div>
+    </nav>
+
+    <header class="project-header">
+        <div class="container">
+            <h1>X-ray Hand Bone Image Segmentation</h1>
+            <p class="subtitle">Data-Centric Approach & Hybrid Ensemble Strategy</p>
+            <div class="project-meta">
+                <span><i class="far fa-calendar-alt"></i> 2024.12 - 2025.01</span>
+                <span><i class="fas fa-users"></i> Team CV-05 (4인)</span>
+                <span><i class="fas fa-user-tag"></i> Role: AI Researcher & Model Optimization</span>
+            </div>
+            <div class="tech-stack">
+                <span class="tech-badge">Python 3.10</span>
+                <span class="tech-badge">PyTorch</span>
+                <span class="tech-badge">SMP</span>
+                <span class="tech-badge">Docker</span>
+                <span class="tech-badge">WandB</span>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        
+        <section class="project-section">
+            <h2>1. 프로젝트 개요 (Overview)</h2>
+            <p>
+                X-ray 이미지에서 29개의 손 뼈를 픽셀 단위로 분할(Segmentation)하는 프로젝트입니다. 
+                단순한 모델링을 넘어, 의료 데이터 특유의 <b>Class Imbalance(클래스 불균형)</b>와 
+                <b>Superimposition(뼈 중첩)</b> 문제를 해결하기 위해 데이터 중심(Data-Centric)의 가설 검증 프로세스를 수행했습니다.
+            </p>
+            <div class="results-summary">
+                <ul>
+                    <li><strong>성과:</strong> Private Leaderboard Dice Score <strong>0.9752</strong> (Rank 11, Top 10%)</li>
+                    <li><strong>핵심 기여:</strong> Hybrid Ensemble 설계, 데이터 전처리(CLAHE) 최적화, Custom Loss 엔지니어링</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="project-section">
+            <h2>2. 문제 정의 (The Challenge)</h2>
+            <div class="analysis-box">
+                <h3>🔍 Why was it hard?</h3>
+                <ul>
+                    <li><strong>Class Collapse (소형 객체 소멸):</strong> 'Finger-12, 13'과 같은 미세 관절은 전체 픽셀의 0.01% 미만을 차지하여, 학습 시 배경(Background)으로 오분류되는 현상 발생 (Dice 0.00).</li>
+                    <li><strong>Ambiguity (경계 모호성):</strong> 3차원인 손목뼈(Carpal Bones)가 2차원 X-ray로 투영되면서 뼈끼리 겹치는 구간(Overlap)의 경계선이 불분명해짐.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="project-section">
+            <h2>3. 문제 해결 과정 (Engineering Process)</h2>
+            <p>SOTA 모델을 맹신하지 않고, <strong>"보이지 않는 것을 보이게 만드는"</strong> 엔지니어링 접근을 시도했습니다.</p>
+
+            <div class="star-section">
+                <h3>🧪 Try 1: "안 보이는 뼈" 살려내기 (Data-Centric)</h3>
+                <p><strong>Situation:</strong> 512px 해상도와 원본 이미지로는 소형 뼈의 특징점(Feature)이 소실됨.</p>
+                <p><strong>Action:</strong></p>
+                <ul>
+                    <li><b>Resolution Scaling:</b> VRAM 한계 내에서 정보 손실을 막기 위해 1024px 기반의 <b>Progressive Resizing</b> 도입.</li>
+                    <li><b>Contrast Enhancement:</b> <code>CLAHE</code> 및 <code>Random Gamma Correction</code>을 적용하여 뼈와 연조직 사이의 대비를 극대화.</li>
+                </ul>
+                <p><strong>Result:</strong> 소형 객체(Pisiform 등)의 Dice Score가 0.00에서 0.85 이상으로 급격히 상승.</p>
+            </div>
+
+            <hr style="margin: 20px 0; border: 0; border-top: 1px dashed #ccc;">
+
+            <div class="star-section">
+                <h3>⚙️ Try 2: "뭉개진 경계" 구분하기 (Model & Loss)</h3>
+                <p><strong>Situation:</strong> 손목뼈 중첩 구간에서 단순 BCE Loss는 픽셀 수가 많은 '배경' 쪽으로 편향되어 경계를 제대로 학습하지 못함.</p>
+                <p><strong>Action:</strong></p>
+                <ul>
+                    <li><b>Hybrid Ensemble:</b> 국소적 특징(Edge)에 강한 <b>CNN(HRNet)</b>과 전역적 문맥(Context)을 보는 <b>Transformer(MaxViT)</b>를 결합하여 상호 보완적 앙상블 구축.</li>
+                    <li><b>Loss Engineering:</b> <code>Focal Loss</code>(Hard Example 집중) + <code>Tversky Loss</code>(Recall 보정)를 결합한 Compound Loss 설계.</li>
+                </ul>
+                <p><strong>Result:</strong> 중첩된 뼈 사이의 경계선 분할 정밀도(Precision) 대폭 향상.</p>
+            </div>
+        </section>
+
+        <section class="project-section">
+            <h2>4. 최종 결과 및 회고 (Results & Retrospective)</h2>
+            <div class="result-metrics">
+                <h3>🏆 Final Score: Dice 0.9752</h3>
+                <p>1위(0.9769)와 0.0017 차이의 접전. 모델 성능은 대등했으나, <b>Post-processing(후처리)</b>의 디테일이 승부를 갈랐음을 확인했습니다.</p>
+            </div>
+            
+            <h3>💡 Lessons Learned (Analyical Thinking)</h3>
+            <ul>
+                <li><strong>Data First, Model Second:</strong> 아무리 좋은 SOTA 모델도 데이터(전처리)가 받쳐주지 않으면 무용지물임을 깨달음. 특히 의료 데이터에서는 도메인 지식에 기반한 전처리가 성능의 8할을 결정함.</li>
+                <li><strong>Validation Strategy:</strong> Group K-Fold를 통해 '왼손/오른손' 데이터 유출(Leakage)을 막고, Public LB와 괴리 없는 신뢰할 수 있는 검증 세트를 구축하는 것의 중요성 체감.</li>
+                <li><strong>Engineering Trade-off:</strong> 0.001점을 올리기 위해 무거운 앙상블을 사용했으나, 현업 배포를 고려한다면 <b>Knowledge Distillation</b>과 같은 경량화 전략이 필수적임.</li>
+            </ul>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Junseo Son. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
