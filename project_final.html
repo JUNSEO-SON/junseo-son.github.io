@@ -70,85 +70,71 @@
             </section>
 
             <section class="bg-white p-8 rounded-2xl shadow-sm border border-slate-100">
-                <h2 class="text-xl font-bold mb-6 text-slate-900 flex items-center">
-                    <span class="w-8 h-8 bg-indigo-100 text-indigo-600 rounded-lg flex items-center justify-center mr-3"><i class="fas fa-server"></i></span>
-                    My Role: Backend Lead & Architect
+                <h2 class="text-xl font-bold mb-8 text-slate-900 flex items-center border-b border-slate-100 pb-4">
+                    <span class="w-8 h-8 bg-indigo-100 text-indigo-600 rounded-lg flex items-center justify-center mr-3"><i class="fas fa-cogs"></i></span>
+                    Key Engineering Achievements (STAR)
                 </h2>
-                <div class="space-y-6">
-                    <div class="flex items-start">
-                        <div class="w-8 flex justify-center mr-3 pt-1"><i class="fas fa-network-wired text-indigo-500"></i></div>
-                        <div>
-                            <strong class="block text-slate-900 mb-1">Hybrid Cloud Pipeline 구축</strong>
-                            <p class="text-slate-600 text-sm leading-relaxed">
-                                고비용의 Cloud GPU 대신 <strong>AWS EC2(Web)</strong>와 <strong>Local GPU(Inference)</strong>를 <strong>SSH Reverse Tunneling</strong>으로 연결했습니다. 
-                                이를 통해 클라우드 비용을 최소화하면서도 RTX 3060의 고성능 추론 자원을 활용하는 파이프라인을 완성했습니다.
-                            </p>
-                        </div>
-                    </div>
-                    <div class="flex items-start">
-                        <div class="w-8 flex justify-center mr-3 pt-1"><i class="fas fa-code text-indigo-500"></i></div>
-                        <div>
-                            <strong class="block text-slate-900 mb-1">FastAPI Server & DB Engineering</strong>
-                            <p class="text-slate-600 text-sm leading-relaxed">
-                                비동기 처리가 가능한 FastAPI를 기반으로 인증(Auth), 진단(Diagnosis), 결과 저장 로직을 설계했습니다. 
-                                PostgreSQL 스키마를 최적화하여 사용자 데이터와 AI 분석 결과를 효율적으로 적재하고 관리했습니다.
-                            </p>
-                        </div>
-                    </div>
-                    <div class="flex items-start">
-                        <div class="w-8 flex justify-center mr-3 pt-1"><i class="fas fa-robot text-indigo-500"></i></div>
-                        <div>
-                            <strong class="block text-slate-900 mb-1">RAG Agent Integration</strong>
-                            <p class="text-slate-600 text-sm leading-relaxed">
-                                단순 진단 점수 제공을 넘어, <strong>LangChain</strong>을 활용한 RAG(Retrieval-Augmented Generation) 시스템을 백엔드에 통합했습니다. 
-                                진단 결과(Severity Grade)에 맞춰 의학 가이드라인 기반의 맞춤형 관리법을 제공하는 로직을 구현했습니다.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <section class="bg-white p-8 rounded-2xl shadow-sm border border-slate-100">
-                <h2 class="text-xl font-bold mb-6 text-slate-900">Engineering Challenges</h2>
                 
-                <div class="mb-8">
-                    <div class="flex items-center mb-3">
-                        <span class="px-2 py-1 bg-red-100 text-red-600 text-xs font-bold rounded uppercase mr-2">Challenge</span>
-                        <h4 class="font-bold text-slate-800">클라우드 GPU 비용 문제와 보안 접근성</h4>
-                    </div>
-                    <div class="pl-4 border-l-2 border-slate-200 ml-1">
-                        <p class="text-slate-600 text-sm mb-3">
-                            학생 프로젝트 예산으로 고성능 GPU 인스턴스를 유지하기 어려웠고, 로컬 서버는 외부 접속(Public IP) 설정이 복잡하고 보안 취약점이 존재했습니다.
-                        </p>
-                        <div class="bg-slate-50 p-4 rounded-lg">
-                            <strong class="text-blue-600 text-sm block mb-1"><i class="fas fa-lightbulb mr-1"></i> Solution: SSH Reverse Tunneling</strong>
-                            <p class="text-slate-700 text-sm">
-                                로컬 서버가 AWS EC2를 향해 <strong>Outbound SSH 터널</strong>을 먼저 형성하게 하여 방화벽 문제를 해결했습니다. 
-                                외부 요청은 AWS가 받아 터널을 통해 로컬 포트(localhost:8002)로 안전하게 포워딩하는 구조로, <strong>비용 '0원'으로 고성능 서빙 환경</strong>을 구축했습니다.
-                            </p>
+                <div class="space-y-10">
+                    
+                    <div class="relative pl-6 border-l-2 border-indigo-100">
+                        <div class="absolute -left-[9px] top-0 w-4 h-4 bg-indigo-500 rounded-full border-4 border-white shadow-sm"></div>
+                        <h3 class="text-lg font-bold text-slate-900 mb-2">1. Hybrid Cloud 구축을 통한 비용 최적화 및 보안 문제 해결</h3>
+                        
+                        <div class="space-y-3 text-sm">
+                            <div class="bg-slate-50 p-4 rounded-lg">
+                                <p class="mb-2"><span class="font-bold text-indigo-600">Situation:</span> 학생 프로젝트 예산상 시간당 고비용의 Cloud GPU 인스턴스(AWS g4dn 등)를 유지하기 어려웠으며, 로컬 고성능 GPU(RTX 3060)를 활용하려 했으나 유동 IP 및 방화벽 문제로 외부 접속이 제한되었습니다.</p>
+                                <p class="mb-2"><span class="font-bold text-indigo-600">Task:</span> 추가 비용 없이(Zero-Cost) 로컬 GPU 자원을 안전하게 클라우드 환경과 연동하여 고성능 추론 서버를 구축해야 했습니다.</p>
+                                <p class="mb-2"><span class="font-bold text-indigo-600">Action:</span> 
+                                    <ul class="list-disc list-inside ml-2 text-slate-700 space-y-1">
+                                        <li><strong>SSH Reverse Tunneling 설계:</strong> 로컬 서버가 AWS EC2를 향해 Outbound 터널(`ssh -R`)을 먼저 형성하여, 외부 포트 개방 없이 안전한 통신 경로를 확보했습니다.</li>
+                                        <li><strong>Network Troubleshooting:</strong> 터널링 연결 시 `curl: (52) Empty reply` 오류가 발생함을 확인하고, 원인이 IPv6(`localhost`) 해석 문제임을 규명했습니다. 이를 `127.0.0.1`로 강제 매핑하여 통신을 안정화했습니다.</li>
+                                    </ul>
+                                </p>
+                                <p><span class="font-bold text-indigo-600">Result:</span> 클라우드 비용을 최소 유지비 수준(t3/m7i)으로 절감하면서도 RTX 3060의 추론 성능을 온전히 활용하는 하이브리드 파이프라인을 완성했습니다.</p>
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <div>
-                    <div class="flex items-center mb-3">
-                        <span class="px-2 py-1 bg-red-100 text-red-600 text-xs font-bold rounded uppercase mr-2">Challenge</span>
-                        <h4 class="font-bold text-slate-800">AI 결과의 신뢰성 및 정형화 문제</h4>
-                    </div>
-                    <div class="pl-4 border-l-2 border-slate-200 ml-1">
-                        <p class="text-slate-600 text-sm mb-3">
-                            AI 모델의 결과(JSON)만으로는 사용자에게 구체적인 행동 가이드를 주기 어려웠고, LLM의 환각(Hallucination) 위험이 있었습니다.
-                        </p>
-                        <div class="bg-slate-50 p-4 rounded-lg">
-                            <strong class="text-blue-600 text-sm block mb-1"><i class="fas fa-lightbulb mr-1"></i> Solution: Structured RAG Pipeline</strong>
-                            <p class="text-slate-700 text-sm">
-                                YOLO와 MobileNet의 분석 결과(구진/결절 개수, 심각도)를 <strong>Context 데이터로 정형화</strong>하여 Prompt에 주입했습니다. 
-                                검증된 의학 문서를 참조하는 RAG 시스템을 통해, "심각도 4단계이므로 항생제 처방이 필요할 수 있습니다"와 같은 구체적이고 신뢰성 있는 조언을 생성했습니다.
-                            </p>
+                    <div class="relative pl-6 border-l-2 border-indigo-100">
+                        <div class="absolute -left-[9px] top-0 w-4 h-4 bg-indigo-500 rounded-full border-4 border-white shadow-sm"></div>
+                        <h3 class="text-lg font-bold text-slate-900 mb-2">2. 비동기 백엔드 아키텍처 및 협업 환경 구축</h3>
+                        
+                        <div class="space-y-3 text-sm">
+                            <div class="bg-slate-50 p-4 rounded-lg">
+                                <p class="mb-2"><span class="font-bold text-indigo-600">Situation:</span> AI 모델의 추론 지연 시간과 대용량 이미지 처리가 발생하여 단일 스레드 방식으로는 응답성이 저하될 우려가 있었습니다. 또한, 프론트엔드 팀과의 협업을 위한 명확한 API 명세가 부재했습니다.</p>
+                                <p class="mb-2"><span class="font-bold text-indigo-600">Task:</span> 고성능 비동기 처리가 가능한 서버를 구축하고, 효율적인 협업을 위한 API 테스트 환경을 제공해야 했습니다.</p>
+                                <p class="mb-2"><span class="font-bold text-indigo-600">Action:</span> 
+                                    <ul class="list-disc list-inside ml-2 text-slate-700 space-y-1">
+                                        <li><strong>FastAPI & Async SQLAlchemy:</strong> `uvicorn` 기반의 비동기 서버를 구축하여 I/O 블로킹을 최소화하고, Layered Architecture(Router-Service-Schema)를 적용해 유지보수성을 높였습니다.</li>
+                                        <li><strong>Swagger UI 고도화:</strong> 기존의 번거로운 폼 데이터 인증 방식을 개선하기 위해 `HTTPBearer` 방식을 도입, Access Token만으로 즉시 테스트 가능한 환경을 프론트엔드 팀에 제공했습니다.</li>
+                                    </ul>
+                                </p>
+                                <p><span class="font-bold text-indigo-600">Result:</span> 프론트엔드-백엔드 간 연동 시행착오를 줄이고, 안정적인 데이터 처리 파이프라인을 구축했습니다.</p>
+                            </div>
                         </div>
                     </div>
-                </div>
 
+                    <div class="relative pl-6 border-l-2 border-indigo-100">
+                        <div class="absolute -left-[9px] top-0 w-4 h-4 bg-indigo-500 rounded-full border-4 border-white shadow-sm"></div>
+                        <h3 class="text-lg font-bold text-slate-900 mb-2">3. RAG 기반의 개인화된 의료 상담 시스템 구현</h3>
+                        
+                        <div class="space-y-3 text-sm">
+                            <div class="bg-slate-50 p-4 rounded-lg">
+                                <p class="mb-2"><span class="font-bold text-indigo-600">Situation:</span> AI 모델이 출력하는 단순 수치(심각도 1~6, 구진 개수 등)만으로는 사용자가 구체적인 행동 지침을 얻기 어려웠고, 일반 LLM은 의학적 환각(Hallucination) 위험이 있었습니다.</p>
+                                <p class="mb-2"><span class="font-bold text-indigo-600">Task:</span> 진단 결과에 맞춰 의학적 근거가 있는 신뢰성 높은 맞춤형 조언을 제공해야 했습니다.</p>
+                                <p class="mb-2"><span class="font-bold text-indigo-600">Action:</span> 
+                                    <ul class="list-disc list-inside ml-2 text-slate-700 space-y-1">
+                                        <li><strong>Context Injection Pipeline:</strong> YOLO와 MobileNet의 분석 결과(JSON)를 텍스트 프롬프트로 정형화하여 LangChain의 Context로 주입했습니다.</li>
+                                        <li><strong>RAG System Integration:</strong> 검증된 피부과 의학 가이드라인 문서를 Vector DB에 적재하고, 사용자 상태에 맞는 문맥을 검색하여 답변을 생성하도록 설계했습니다.</li>
+                                    </ul>
+                                </p>
+                                <p><span class="font-bold text-indigo-600">Result:</span> "심각도 4단계이므로 항생제 처방이 필요할 수 있습니다"와 같이 사용자 상태에 최적화된 구체적이고 신뢰성 있는 의료 가이드를 제공했습니다.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
             </section>
 
             <section class="bg-indigo-900 text-white p-8 rounded-2xl shadow-lg">
